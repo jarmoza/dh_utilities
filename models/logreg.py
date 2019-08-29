@@ -51,7 +51,8 @@ class LogReg(object):
 			self.m_holdout_counts = Counter(self.m_holdout_labels)
 
 		# 4. Create the scikit logreg object with given parameters
-		self.m_logistic_regression = LogisticRegression(solver="lbfgs", multi_class="auto", max_iter=500)
+		self.m_logistic_regression = LogisticRegression(solver=self.m_parameters["fit"]["solver"],
+			multi_class=self.m_parameters["fit"]["multi_class"], max_iter=self.m_parameters["fit"]["max_iter"])
 
 	def fit(self):
 
